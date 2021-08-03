@@ -43,8 +43,9 @@ func create_road(discretisation:int):
 	for p in frange(0,1,discretisation):
 		local_pos=gamma_circle(p)
 		var newRoad = Sprite.new()
-		newRoad.texture=load("res://road_fragment.png")
+		newRoad.texture=load("res://roadV2.png")
 		newRoad.global_position = local_pos
+		newRoad.scale = Vector2(0.2,0.2)
 		add_child(newRoad)
 		orientate(newRoad,gamma_circle(p+0.0001)-gamma_circle(p))
 		roadlist+=[newRoad]
@@ -63,7 +64,7 @@ func _ready():
 	#roadlist[0].visible=true
 	#add_child(roadlist[0])
 	#print(DIRECTION0.cross(Vector2(0,-1)))
-	create_road(50)
+	create_road(60)
 	pass # Replace with function body.
 
 
