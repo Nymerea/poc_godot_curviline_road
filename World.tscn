@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://road_fragment.png" type="Texture" id=1]
+[ext_resource path="res://World.gd" type="Script" id=2]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Road" type="Sprite" parent="."]
+texture = ExtResource( 1 )
