@@ -6,11 +6,8 @@ extends Node2D
 # var b = "text"
 const DIRECTION0:Vector2=Vector2(1,0)
 var screensize:Vector2
-
 var screencenter:Vector2
-
 var radius:float=100
-
 var roadlist=[]
 
 func gamma_circle(p:float)->Vector2:
@@ -45,17 +42,20 @@ func create_road(discretisation:int):
 	var local_pos:Vector2
 	for p in frange(0,1,discretisation):
 		local_pos=gamma_circle(p)
-		roadlist+=[$Road.duplicate()]
-		add_child(roadlist[-1])
-		roadlist[-1].position=local_pos
-		orientate(roadlist[-1],gamma_circle(p+0.0001)-gamma_circle(p))
+		var newRoad = Sprite.new()
+		newRoad.texture=load("res://road_fragment.png")
+		newRoad.global_position = local_pos
+		add_child(newRoad)
+		orientate(newRoad,gamma_circle(p+0.0001)-gamma_circle(p))
+		roadlist+=[newRoad]
+
+
 	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screensize=get_viewport().size
 	screencenter=screensize/2
-	roadlist+=[$Road.duplicate()]
 	#$Road.position=screencenter
 	#roadlist[0].global_position=screencenter
 	#print($Road)
