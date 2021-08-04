@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://curve_class_test/World_curve_class_test.gd" type="Script" id=1]
+[ext_resource path="res://road_fragment2.png" type="Texture" id=2]
+
+[node name="World2" type="Node2D"]
+script = ExtResource( 1 )
+world_size = Vector2( 3000, 3000 )
+world_color = Color( 0.494118, 0.576471, 0.458824, 1 )
+ousideworld_color = Color( 0.180392, 0.0117647, 0.203922, 1 )
+ousideworld_relativ_border = 1.1
+road_width = 30.0
+centredroadline_relativ_width = 0.04
+centredroadline_length = 10.0
+centredroadline_void_length = 4.0
+centredroadline_color = Color( 1, 1, 1, 1 )
+roadway_relativ_exentration = 0.4
+exentrateroadline_relativ_width = 0.04
+exentrateroadline_length = 24.0
+exentrateroadline_void_length = 4.0
+exentrateroadline_color = Color( 1, 0.964706, 0.423529, 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( -9.25305, 5.55185 )
+polygon = PoolVector2Array( 208.5, 82.7335, 334.342, 153.057, 234.409, 297.405 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 47.4862, 25.9017 )
+points = PoolVector2Array( 38.4589, 56.8633, 88.1038, 132.41, 109.688, 195.005, 161.492, 190.688, 174.443, 138.885, 180.918, 93.5573, 239.197, 110.825, 273.906, 126.121, 366.546, 166.945 )
+width = 30.0
+texture = ExtResource( 2 )
+texture_mode = 2
