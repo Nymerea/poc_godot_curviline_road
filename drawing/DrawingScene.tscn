@@ -19,7 +19,7 @@ extents = Vector2( 13.0394, 10 )
 extents = Vector2( 17.5728, 15.9936 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 4.52688, 2.6565 )
+extents = Vector2( 3.17324, 4.86055 )
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 7 )
@@ -38,11 +38,31 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 offset = Vector2( -32.1919, -28.0098 )
 
-[node name="land_grass3" type="Sprite" parent="background"]
-position = Vector2( 175.56, 46.6582 )
+[node name="Grass193" type="StaticBody2D" parent="background"]
+collision_layer = 16
+
+[node name="sprite" type="Sprite" parent="background/Grass193"]
+position = Vector2( 174.653, 46.7918 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 offset = Vector2( -32.1919, -28.0098 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Grass193"]
+position = Vector2( 157, 37.3305 )
+shape = SubResource( 5 )
+
+[node name="Grass3" type="StaticBody2D" parent="background"]
+collision_layer = 16
+
+[node name="land_grass19" type="Sprite" parent="background/Grass3"]
+position = Vector2( 175.125, 108.811 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Grass3"]
+position = Vector2( 157.762, 94.964 )
+shape = SubResource( 5 )
 
 [node name="land_grass4" type="Sprite" parent="background"]
 position = Vector2( 238.64, 46.7478 )
@@ -788,26 +808,13 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 offset = Vector2( -32.1919, -28.0098 )
 
-[node name="Grass" type="Area2D" parent="background"]
-collision_layer = 16
-
-[node name="land_grass19" type="Sprite" parent="background/Grass"]
-position = Vector2( 175.125, 108.811 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-offset = Vector2( -32.1919, -28.0098 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Grass"]
-position = Vector2( 84.7127, 63.2396 )
-shape = SubResource( 5 )
-
 [node name="LineRoad" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="Line2D" type="Line2D" parent="LineRoad"]
-position = Vector2( 18.2847, 12.4325 )
-scale = Vector2( 3.33853, 3.57774 )
-points = PoolVector2Array( 180.249, 32.3055, 9.8273, 4.5114 )
+position = Vector2( 18.1758, 12.4325 )
+scale = Vector2( 3.36924, 4 )
+points = PoolVector2Array( 180.249, 32.3055, 6.45688, 30.0678, 5.75096, 3.45925 )
 default_color = Color( 0.988235, 0.988235, 0.992157, 1 )
 texture = ExtResource( 5 )
 texture_mode = 1
@@ -835,16 +842,17 @@ position = Vector2( 637.772, 133.816 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 
-[node name="Car" type="KinematicBody2D" parent="."]
-collision_mask = 31
+[node name="Car" type="Navigation2D" parent="."]
 script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Car"]
-position = Vector2( 67.3643, 25.7663 )
-rotation = 1.74533
+position = Vector2( 45.3395, 33.2748 )
+rotation = -2.79253
 scale = Vector2( 0.178091, 0.181519 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
-position = Vector2( 67.1678, 25.5252 )
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Car"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car/KinematicBody2D"]
+position = Vector2( 45.143, 33.3673 )
 shape = SubResource( 4 )

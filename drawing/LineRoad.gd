@@ -50,8 +50,15 @@ func _input(event):
 		else:
 			point_picked = false
 			selected_point = null
-
-
+export var path :PoolVector2Array = PoolVector2Array()
+func get_road_path() -> PoolVector2Array:
+	var path :PoolVector2Array = PoolVector2Array()
+	for p in $Line2D.points:
+		var point = p*road_scale
+		path.append(point)
+	path.invert()
+	return path
+	
 func _draw():
 	draw_points()
 
