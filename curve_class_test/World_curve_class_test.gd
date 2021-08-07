@@ -110,9 +110,9 @@ func reposition_screen():
 	pass
 
 func gamma_circle(p:float)->Vector2:
-	return Vector2(cos(2*PI*p),sin(2*PI*p))*100
+	#return Vector2(cos(2*PI*p),sin(2*PI*p))*100
 	#return Vector2(cos(4*PI*p),sin(4*PI*p))*p*200
-	#return Vector2(cos(8*PI*p),10*p)*100-Vector2(0,250)
+	return Vector2(cos(8*PI*p),10*p)*100-Vector2(0,250)
 func frange(begin:float,end:float,discr:int):
 	var dx:float=(end-begin)/discr
 	var res=[]
