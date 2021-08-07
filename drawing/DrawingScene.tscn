@@ -1,0 +1,819 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://drawing/land_grass.png" type="Texture" id=1]
+[ext_resource path="res://drawing/house.png" type="Texture" id=2]
+[ext_resource path="res://drawing/shop.png" type="Texture" id=3]
+[ext_resource path="res://drawing/LineRoad.gd" type="Script" id=4]
+[ext_resource path="res://road_fragment.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.0394, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17.5728, 15.9936 )
+
+[node name="Map" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="land_grass" type="Sprite" parent="background"]
+position = Vector2( 48.0058, 46.6657 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass2" type="Sprite" parent="background"]
+position = Vector2( 111.812, 46.6923 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass3" type="Sprite" parent="background"]
+position = Vector2( 175.56, 46.6582 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass4" type="Sprite" parent="background"]
+position = Vector2( 238.64, 46.7478 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass5" type="Sprite" parent="background"]
+position = Vector2( 302.524, 46.6657 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass6" type="Sprite" parent="background"]
+position = Vector2( 366.33, 46.6923 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass7" type="Sprite" parent="background"]
+position = Vector2( 430.078, 46.6582 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass8" type="Sprite" parent="background"]
+position = Vector2( 493.158, 46.7478 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass9" type="Sprite" parent="background"]
+position = Vector2( 555.489, 47.1954 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass10" type="Sprite" parent="background"]
+position = Vector2( 619.295, 47.222 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass11" type="Sprite" parent="background"]
+position = Vector2( 683.042, 47.188 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass12" type="Sprite" parent="background"]
+position = Vector2( 746.123, 47.2776 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass13" type="Sprite" parent="background"]
+position = Vector2( 810.007, 47.1954 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass14" type="Sprite" parent="background"]
+position = Vector2( 873.813, 47.222 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass15" type="Sprite" parent="background"]
+position = Vector2( 937.561, 47.188 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass16" type="Sprite" parent="background"]
+position = Vector2( 1000.64, 47.2776 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass17" type="Sprite" parent="background"]
+position = Vector2( 47.5715, 108.819 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass18" type="Sprite" parent="background"]
+position = Vector2( 111.377, 108.845 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass19" type="Sprite" parent="background"]
+position = Vector2( 175.125, 108.811 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass20" type="Sprite" parent="background"]
+position = Vector2( 238.206, 108.901 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass21" type="Sprite" parent="background"]
+position = Vector2( 302.09, 108.819 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass22" type="Sprite" parent="background"]
+position = Vector2( 365.896, 108.845 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass23" type="Sprite" parent="background"]
+position = Vector2( 429.644, 108.811 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass24" type="Sprite" parent="background"]
+position = Vector2( 492.724, 108.901 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass25" type="Sprite" parent="background"]
+position = Vector2( 555.054, 109.348 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass26" type="Sprite" parent="background"]
+position = Vector2( 618.86, 109.375 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass27" type="Sprite" parent="background"]
+position = Vector2( 682.608, 109.341 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass28" type="Sprite" parent="background"]
+position = Vector2( 746.689, 109.431 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass29" type="Sprite" parent="background"]
+position = Vector2( 810.573, 109.348 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass30" type="Sprite" parent="background"]
+position = Vector2( 874.379, 109.375 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass31" type="Sprite" parent="background"]
+position = Vector2( 938.126, 109.341 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass32" type="Sprite" parent="background"]
+position = Vector2( 1001.56, 108.784 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass33" type="Sprite" parent="background"]
+position = Vector2( 48.0058, 172.666 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass34" type="Sprite" parent="background"]
+position = Vector2( 111.812, 172.692 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass35" type="Sprite" parent="background"]
+position = Vector2( 175.56, 172.658 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass36" type="Sprite" parent="background"]
+position = Vector2( 238.64, 172.748 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass37" type="Sprite" parent="background"]
+position = Vector2( 302.524, 172.666 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass38" type="Sprite" parent="background"]
+position = Vector2( 366.33, 172.692 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass39" type="Sprite" parent="background"]
+position = Vector2( 430.078, 172.658 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass40" type="Sprite" parent="background"]
+position = Vector2( 493.158, 172.748 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass41" type="Sprite" parent="background"]
+position = Vector2( 555.489, 173.195 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass42" type="Sprite" parent="background"]
+position = Vector2( 619.295, 173.222 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass43" type="Sprite" parent="background"]
+position = Vector2( 683.042, 173.188 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass44" type="Sprite" parent="background"]
+position = Vector2( 746.123, 173.278 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass45" type="Sprite" parent="background"]
+position = Vector2( 810.007, 173.195 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass46" type="Sprite" parent="background"]
+position = Vector2( 873.813, 173.222 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass47" type="Sprite" parent="background"]
+position = Vector2( 937.561, 173.188 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass48" type="Sprite" parent="background"]
+position = Vector2( 1000.64, 172.278 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass49" type="Sprite" parent="background"]
+position = Vector2( 47.5715, 234.819 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass50" type="Sprite" parent="background"]
+position = Vector2( 111.377, 234.845 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass51" type="Sprite" parent="background"]
+position = Vector2( 175.125, 234.811 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass52" type="Sprite" parent="background"]
+position = Vector2( 238.206, 234.901 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass53" type="Sprite" parent="background"]
+position = Vector2( 302.09, 234.819 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass54" type="Sprite" parent="background"]
+position = Vector2( 365.896, 234.845 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass55" type="Sprite" parent="background"]
+position = Vector2( 429.644, 234.811 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass56" type="Sprite" parent="background"]
+position = Vector2( 492.724, 234.901 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass57" type="Sprite" parent="background"]
+position = Vector2( 555.054, 235.349 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass58" type="Sprite" parent="background"]
+position = Vector2( 618.86, 235.375 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass59" type="Sprite" parent="background"]
+position = Vector2( 682.608, 235.341 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass60" type="Sprite" parent="background"]
+position = Vector2( 746.689, 235.431 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass61" type="Sprite" parent="background"]
+position = Vector2( 810.573, 235.349 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass62" type="Sprite" parent="background"]
+position = Vector2( 874.379, 235.375 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass63" type="Sprite" parent="background"]
+position = Vector2( 938.126, 235.341 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass64" type="Sprite" parent="background"]
+position = Vector2( 1001.56, 234.784 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass65" type="Sprite" parent="background"]
+position = Vector2( 48.0058, 298.368 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass66" type="Sprite" parent="background"]
+position = Vector2( 111.812, 298.395 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass67" type="Sprite" parent="background"]
+position = Vector2( 175.56, 298.361 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass68" type="Sprite" parent="background"]
+position = Vector2( 238.64, 298.45 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass69" type="Sprite" parent="background"]
+position = Vector2( 302.524, 298.368 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass70" type="Sprite" parent="background"]
+position = Vector2( 366.33, 298.395 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass71" type="Sprite" parent="background"]
+position = Vector2( 430.078, 298.361 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass72" type="Sprite" parent="background"]
+position = Vector2( 493.158, 298.45 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass73" type="Sprite" parent="background"]
+position = Vector2( 555.489, 298.898 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass74" type="Sprite" parent="background"]
+position = Vector2( 619.295, 298.925 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass75" type="Sprite" parent="background"]
+position = Vector2( 683.042, 298.891 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass76" type="Sprite" parent="background"]
+position = Vector2( 746.123, 298.98 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass77" type="Sprite" parent="background"]
+position = Vector2( 810.007, 298.898 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass78" type="Sprite" parent="background"]
+position = Vector2( 873.813, 298.925 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass79" type="Sprite" parent="background"]
+position = Vector2( 937.561, 298.891 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass80" type="Sprite" parent="background"]
+position = Vector2( 1000.64, 297.98 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass81" type="Sprite" parent="background"]
+position = Vector2( 47.5715, 360.521 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass82" type="Sprite" parent="background"]
+position = Vector2( 111.377, 360.548 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass83" type="Sprite" parent="background"]
+position = Vector2( 175.125, 360.514 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass84" type="Sprite" parent="background"]
+position = Vector2( 238.206, 360.604 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass85" type="Sprite" parent="background"]
+position = Vector2( 302.09, 360.521 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass86" type="Sprite" parent="background"]
+position = Vector2( 365.896, 360.548 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass87" type="Sprite" parent="background"]
+position = Vector2( 429.644, 360.514 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass88" type="Sprite" parent="background"]
+position = Vector2( 492.724, 360.604 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass89" type="Sprite" parent="background"]
+position = Vector2( 555.054, 361.051 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass90" type="Sprite" parent="background"]
+position = Vector2( 618.86, 361.078 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass91" type="Sprite" parent="background"]
+position = Vector2( 682.608, 361.044 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass92" type="Sprite" parent="background"]
+position = Vector2( 746.689, 361.133 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass93" type="Sprite" parent="background"]
+position = Vector2( 810.573, 361.051 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass94" type="Sprite" parent="background"]
+position = Vector2( 874.379, 361.078 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass95" type="Sprite" parent="background"]
+position = Vector2( 938.126, 361.044 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass96" type="Sprite" parent="background"]
+position = Vector2( 1001.56, 360.487 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass97" type="Sprite" parent="background"]
+position = Vector2( 48.0058, 424.368 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass98" type="Sprite" parent="background"]
+position = Vector2( 111.812, 424.395 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass99" type="Sprite" parent="background"]
+position = Vector2( 175.56, 424.361 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass100" type="Sprite" parent="background"]
+position = Vector2( 238.64, 424.45 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass101" type="Sprite" parent="background"]
+position = Vector2( 302.524, 424.368 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass102" type="Sprite" parent="background"]
+position = Vector2( 366.33, 424.395 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass103" type="Sprite" parent="background"]
+position = Vector2( 430.078, 424.361 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass104" type="Sprite" parent="background"]
+position = Vector2( 493.158, 424.45 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass105" type="Sprite" parent="background"]
+position = Vector2( 555.489, 424.898 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass106" type="Sprite" parent="background"]
+position = Vector2( 619.295, 424.925 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass107" type="Sprite" parent="background"]
+position = Vector2( 683.042, 424.891 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass108" type="Sprite" parent="background"]
+position = Vector2( 746.123, 424.98 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass109" type="Sprite" parent="background"]
+position = Vector2( 810.007, 424.898 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass110" type="Sprite" parent="background"]
+position = Vector2( 873.813, 424.925 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass111" type="Sprite" parent="background"]
+position = Vector2( 937.561, 424.891 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass112" type="Sprite" parent="background"]
+position = Vector2( 1000.64, 423.98 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass113" type="Sprite" parent="background"]
+position = Vector2( 47.5715, 486.521 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass114" type="Sprite" parent="background"]
+position = Vector2( 111.377, 486.548 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass115" type="Sprite" parent="background"]
+position = Vector2( 175.125, 486.514 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass116" type="Sprite" parent="background"]
+position = Vector2( 238.206, 486.604 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass117" type="Sprite" parent="background"]
+position = Vector2( 302.09, 486.521 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass118" type="Sprite" parent="background"]
+position = Vector2( 365.896, 486.548 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass119" type="Sprite" parent="background"]
+position = Vector2( 429.644, 486.514 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass120" type="Sprite" parent="background"]
+position = Vector2( 492.724, 486.604 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass121" type="Sprite" parent="background"]
+position = Vector2( 555.054, 487.051 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass122" type="Sprite" parent="background"]
+position = Vector2( 618.86, 487.078 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass123" type="Sprite" parent="background"]
+position = Vector2( 682.608, 487.044 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass124" type="Sprite" parent="background"]
+position = Vector2( 746.689, 487.133 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass125" type="Sprite" parent="background"]
+position = Vector2( 810.573, 487.051 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass126" type="Sprite" parent="background"]
+position = Vector2( 874.379, 487.078 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass127" type="Sprite" parent="background"]
+position = Vector2( 938.126, 487.044 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="land_grass128" type="Sprite" parent="background"]
+position = Vector2( 1001.56, 486.487 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( -32.1919, -28.0098 )
+
+[node name="House" type="Area2D" parent="."]
+
+[node name="HouseColision" type="CollisionShape2D" parent="House"]
+position = Vector2( 24.5575, 12.963 )
+shape = SubResource( 1 )
+
+[node name="greenHouse" type="Sprite" parent="House"]
+position = Vector2( 26.3642, -2.56858 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="Destination" type="Area2D" parent="."]
+position = Vector2( 0.793701, 3.96849 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destination"]
+position = Vector2( 637.937, 133.739 )
+shape = SubResource( 2 )
+
+[node name="shop" type="Sprite" parent="Destination"]
+position = Vector2( 637.772, 133.816 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="LineRoad" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Line2D" type="Line2D" parent="LineRoad"]
+position = Vector2( -10.8315, 8.02293 )
+scale = Vector2( 1.5, 1.5 )
+points = PoolVector2Array( 390.815, 80.4849, 175.501, 79.8816, 74.1918, 62.2626, 33.1113, 26.5643 )
+default_color = Color( 0.988235, 0.988235, 0.992157, 1 )
+texture = ExtResource( 5 )
+texture_mode = 1
