@@ -18,6 +18,14 @@ config/name="Poc Curviline Way"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="car"
+2d_physics/layer_2="house"
+2d_physics/layer_3="shop"
+2d_physics/layer_4="road"
+2d_physics/layer_5="environement"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
