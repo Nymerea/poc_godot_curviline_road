@@ -152,6 +152,7 @@ func remove_nearest_control_point(verbose:bool):
 	gncp[0].remove_control_point_index(gncp[1])
 
 
+
 func move_the_nearest_control_point(verbose):
 	var mouse_pos:Vector2=get_local_mouse_position()
 	var gncp=get_nearest_cp(mouse_pos)
@@ -664,11 +665,52 @@ func manage_signals_event(event):
 	manage_left_click_signal()
 	pass
 
+
+
+
+
+var DIRECTION0=Vector2(-1,0)
+func orientate(roadobj:Sprite,grad:Vector2):
+	var direction:Vector2
+	var signe:float
+	var angle:float
+	if grad.length()==0:
+		direction=Vector2(1,0)
+	else:
+		direction=grad.normalized()
+	angle=acos(min(1,max(-1,DIRECTION0.dot(direction))))
+	signe=DIRECTION0.cross(direction)
+	if signe<0:
+		signe=-1
+	else:
+		signe=1
+	roadobj.rotation_degrees=signe*(angle/(2*PI))*360
+	pass
+
+var time=0
+var t
 func _process(delta):
 	#Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	#print(get_viewport().get_mouse_position())
 	#manage_signals_delta(delta)
 	#print(last_mouse_position)
+	time=time+delta
+	t=abs(cos(time))
+	if  not far_enougth_road():
+		var nfrp=nearest_fragment_road_position(get_local_mouse_position())
+		var road=nfrp[1]
+		var fragment_index=nfrp[2]
+		var couple_points=road.get_road_fragment(fragment_index)
+		var p1=couple_points[0]
+		var p2=couple_points[1]
+		if p1==p2:
+			pass
+		else:
+			var dir=(p2-p1).normalized()
+			var pos=p1*(1-t) +p2*t
+			$Debugging_sprite2.position=pos
+			orientate($Debugging_sprite2,dir)
+		pass
 	pass
 
 func _input(event):

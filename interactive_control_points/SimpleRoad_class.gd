@@ -9,6 +9,8 @@ var points2:PoolVector2Array
 # var a = 2
 # var b = "text"
 
+
+
 #func get_control_point()
 
 func maj_control_point_index():
