@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://drawing/land_grass.png" type="Texture" id=1]
 [ext_resource path="res://drawing/house.png" type="Texture" id=2]
-[ext_resource path="res://drawing/shop.png" type="Texture" id=3]
 [ext_resource path="res://drawing/LineRoad.gd" type="Script" id=4]
 [ext_resource path="res://road_fragment.png" type="Texture" id=5]
 
@@ -805,10 +804,11 @@ shape = SubResource( 2 )
 [node name="shop" type="Sprite" parent="Destination"]
 position = Vector2( 637.772, 133.816 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
 
 [node name="LineRoad" type="Node2D" parent="."]
 script = ExtResource( 4 )
+offset = 90
+steps = 100
 
 [node name="Line2D" type="Line2D" parent="LineRoad"]
 position = Vector2( -10.8315, 8.02293 )

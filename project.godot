@@ -8,14 +8,25 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Curve4game",
+"language": "GDScript",
+"path": "res://curve_class/Curve4game.gd"
+}, {
+"base": "Curve4game",
+"class": "Curve4game_interpolated",
+"language": "GDScript",
+"path": "res://curve_class/curve4game_interpolated.gd"
+} ]
 _global_script_class_icons={
+"Curve4game": "",
+"Curve4game_interpolated": ""
 }
 
 [application]
 
 config/name="Poc Curviline Way"
-run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
 [rendering]
