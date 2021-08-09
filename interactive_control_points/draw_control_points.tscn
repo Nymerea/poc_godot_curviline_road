@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://interactive_control_points/World.gd" type="Script" id=1]
+[ext_resource path="res://interactive_control_points/text_but_destroyroad.png" type="Texture" id=2]
+[ext_resource path="res://interactive_control_points/text_but_drawroad.png" type="Texture" id=3]
+[ext_resource path="res://interactive_control_points/text_but_draw_roadnode.png" type="Texture" id=4]
+[ext_resource path="res://interactive_control_points/Button_road_create.gd" type="Script" id=5]
+[ext_resource path="res://interactive_control_points/Button_road_destroy.gd" type="Script" id=6]
+[ext_resource path="res://interactive_control_points/Button_add_node.gd" type="Script" id=7]
+[ext_resource path="res://interactive_control_points/text_but_edit_cp.png" type="Texture" id=8]
+[ext_resource path="res://interactive_control_points/Button_modify_cp.gd" type="Script" id=9]
+[ext_resource path="res://interactive_control_points/SimpleRoad_class.gd" type="Script" id=10]
+[ext_resource path="res://interactive_control_points/Control_point.gd" type="Script" id=11]
+[ext_resource path="res://interactive_control_points/RoadNode.gd" type="Script" id=12]
+[ext_resource path="res://interactive_control_points/debug_texture.png" type="Texture" id=13]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 1 )
+dist_far_enougth_cp = 30.0
+dist_far_enougth_road = 50.0
+dist_far_enougth_node = 50.0
+
+[node name="Button_road_create" type="Button" parent="."]
+margin_left = 50.9427
+margin_top = 0.37735
+margin_right = 77.9427
+margin_bottom = 21.3773
+icon = ExtResource( 3 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_road_destroy" type="Button" parent="."]
+margin_left = 2.64145
+margin_top = 2.26411
+margin_right = 14.6414
+margin_bottom = 22.2641
+icon = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_add_node" type="Button" parent="."]
+margin_left = 92.4516
+margin_top = 1.88677
+margin_right = 119.452
+margin_bottom = 22.8868
+icon = ExtResource( 4 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_modify_cp" type="Button" parent="."]
+margin_left = 136.396
+margin_top = 1.86794
+margin_right = 175.396
+margin_bottom = 37.8679
+icon = ExtResource( 8 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SimpleRoad_class" type="Line2D" parent="."]
+position = Vector2( -292.968, 177.825 )
+points = PoolVector2Array( 56.8383, 82.1497, 187.93, 82.78, 222.594, 44.3348, 252.846, 106.099, 24.0653, 109.881 )
+default_color = Color( 0.0666667, 0.0705882, 0.0705882, 1 )
+script = ExtResource( 10 )
+
+[node name="Control_point" type="Line2D" parent="SimpleRoad_class"]
+position = Vector2( 149.551, 71.7633 )
+z_index = 1
+points = PoolVector2Array( 10.2663, -55.5156, 38.2437, -58.2231 )
+width = 8.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource( 11 )
+
+[node name="RoadNode" type="Line2D" parent="."]
+position = Vector2( -631.578, -92.6315 )
+z_index = 2
+points = PoolVector2Array( 520.368, 198.052, 531.199, 196.638 )
+default_color = Color( 0.854902, 0.917647, 0.129412, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource( 12 )
+
+[node name="Debugging_sprite" type="Sprite" parent="."]
+position = Vector2( -104.155, 39.8892 )
+z_index = 1000
+texture = ExtResource( 13 )
