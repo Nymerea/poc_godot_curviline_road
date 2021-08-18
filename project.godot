@@ -27,6 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Poc Curviline Way"
+run/main_scene="res://interactive_control_points/draw_control_points.tscn"
 config/icon="res://icon.png"
 
 [rendering]

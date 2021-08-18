@@ -8,7 +8,7 @@ export var dist_far_enougth_cp:float
 export var dist_far_enougth_road:float
 export var dist_far_enougth_node:float
 
-enum EDIT_STATES{ROAD,DESTROY,NODE,CP,NONE,WAITING_ROAD_SECOND_NODE,MOVE_CP}
+enum EDIT_STATES{ROAD,DESTROY,NODE,CP,NONE,WAITING_ROAD_SECOND_NODE,MOVE_CP,ADD_CAR}
 var current_state=EDIT_STATES.NONE
 #var current_state=42
 
@@ -17,7 +17,7 @@ signal SIG_MOUSE_RIGTH_CLICK
 signal SIG_MOUSE_LEFT_CLICK
 
 enum STATE_MACHINE_SIGNALS{ROAD_BUTTON_SIG,DESTROY_BUTTON_SIG,NODE_BUTTON_SIG,
-CP_BUTTON_SIG,POINTER_MOVE,ACCEPT,DENY}
+CP_BUTTON_SIG,POINTER_MOVE,ACCEPT,DENY,ADD_CAR_BUTTON_SIG}
 const SMS=STATE_MACHINE_SIGNALS
 
 
@@ -25,6 +25,7 @@ const SMS=STATE_MACHINE_SIGNALS
 
 var roadlist:Array=[]
 var nodelist:Array=[]
+var carlist:Array=[]
 
 var savestate_last_road=null
 var savestate_last_roadnode=null
@@ -45,6 +46,7 @@ func _connect_buttons():
 	connect_button($Button_road_destroy)
 	connect_button($Button_add_node)
 	connect_button($Button_modify_cp)
+	connect_button($ButtonAddCar)
 	
 	assert(connect("SIG_MOUSE_MOVE",self,"_when_cursor_move")==0)
 	assert(connect("SIG_MOUSE_RIGTH_CLICK",self,"_when_rigth_click")==0)
@@ -78,7 +80,8 @@ func is_near_from_buttons(pos:Vector2):
 	return [(pos-$Button_road_create.rect_position).length(),
 			(pos-$Button_road_destroy.rect_position).length(),
 			(pos-$Button_add_node.rect_position).length(),
-			(pos-$Button_modify_cp.rect_position).length() 
+			(pos-$Button_modify_cp.rect_position).length(), 
+			(pos-$ButtonAddCar.rect_position).length() 
 			].min()<50
 
 func make_the_road_follow_cursor(verbose:bool):
@@ -91,6 +94,18 @@ func accept_cp_position(verbose:bool):
 	savestate_last_road.move_control_point_index(savestate_last_roadcp_index,mouse_pos)
 	verbose_print("new cp position:"+String(mouse_pos),verbose)
 	transition_from_MOVE_CP_to_CP(verbose)
+	
+func accept_add_car_position(verbose:bool):
+	var mouse_pos=get_local_mouse_position()
+	var road_data_struct : Array = nearest_fragment_road_position(mouse_pos) #Vec2,road,frag_index]
+	if road_data_struct != null:
+		print("add car in detected road : "+str(road_data_struct[1]))
+		var newCar = $Car.duplicate()
+		newCar.set_car(road_data_struct)
+		add_child(newCar)
+		carlist.append(newCar)
+	verbose_print("new add car position:"+String(mouse_pos),verbose)
+	transition_from_ADD_CAR_to_NONE(verbose)
 
 func deny_cp_position(verbose:bool):
 	assert(savestate_last_road!=null and savestate_last_roadcp_index!=-1)
@@ -500,6 +515,12 @@ func change_to_state_CP(verbose:bool):
 	Input.set_custom_mouse_cursor($Button_modify_cp.mouse_icon)
 	current_state=EDIT_STATES.CP
 	pass
+	
+func change_to_state_addCar(verbose:bool):
+	verbose_print("call change_to_state_addCar",verbose)
+	Input.set_custom_mouse_cursor($ButtonAddCar.mouse_icon)
+	current_state=EDIT_STATES.ADD_CAR
+	pass
 
 func change_to_state_WAITING_ROAD_SECOND_NODE(verbose:bool):
 	verbose_print("call change_to_state_WAITING_ROAD_SECOND_NODE",verbose)
@@ -523,6 +544,12 @@ func transition_from_MOVE_CP_to_CP(verbose:bool):
 	savestate_last_road=null
 	savestate_last_roadcp_index=-1
 	current_state=EDIT_STATES.CP
+	
+func transition_from_ADD_CAR_to_NONE(verbose:bool):
+	verbose_print("call transition_from_ADD_CAR_to_NONE",verbose)
+	savestate_last_road=null
+	savestate_last_roadcp_index=-1
+	current_state=EDIT_STATES.NONE
 
 ####################################
 ######### BEGIN STATE MACHINE ######
@@ -536,6 +563,7 @@ func state_machine_ROAD(sms,verbose:bool):
 		[STATE_MACHINE_SIGNALS.DESTROY_BUTTON_SIG,_,_]:state_machine_general_transition(sms,verbose)
 		[STATE_MACHINE_SIGNALS.NODE_BUTTON_SIG,_,_]:state_machine_general_transition(sms,verbose)
 		[STATE_MACHINE_SIGNALS.CP_BUTTON_SIG,_,_]:state_machine_general_transition(sms,verbose)
+		[STATE_MACHINE_SIGNALS.ADD_CAR_BUTTON_SIG,_,_]:change_to_state_addCar(verbose)
 		
 		[STATE_MACHINE_SIGNALS.ACCEPT,true,true]:
 			create_road_ex_nihilo(verbose)
@@ -587,6 +615,7 @@ func state_machine_NONE(sms,verbose:bool):
 		STATE_MACHINE_SIGNALS.DESTROY_BUTTON_SIG:change_to_state_DESTROY(verbose)
 		STATE_MACHINE_SIGNALS.NODE_BUTTON_SIG:change_to_state_NODE(verbose)
 		STATE_MACHINE_SIGNALS.CP_BUTTON_SIG:change_to_state_CP(verbose)
+		STATE_MACHINE_SIGNALS.ADD_CAR_BUTTON_SIG:change_to_state_addCar(verbose)
 		_:pass
 
 func state_machine_WAITING_ROAD_SECOND_NODE(sms,verbose):
@@ -606,6 +635,9 @@ func state_machine_MOVE_CP(sms,verbose):
 		[STATE_MACHINE_SIGNALS.POINTER_MOVE]: make_the_road_follow_cursor(verbose)
 		[STATE_MACHINE_SIGNALS.ACCEPT]: accept_cp_position(verbose)
 		[STATE_MACHINE_SIGNALS.DENY]: deny_cp_position(verbose)
+func state_machine_ADD_CAR(sms,verbose):
+	match [sms]:
+		[STATE_MACHINE_SIGNALS.ACCEPT]: accept_add_car_position(verbose)
 
 func global_state_machine(sms,verbose:bool=false):
 	verbose_print("#########################",verbose)
@@ -619,6 +651,7 @@ func global_state_machine(sms,verbose:bool=false):
 		EDIT_STATES.NONE:state_machine_NONE(sms,verbose)
 		EDIT_STATES.WAITING_ROAD_SECOND_NODE:state_machine_WAITING_ROAD_SECOND_NODE(sms,verbose)
 		EDIT_STATES.MOVE_CP:state_machine_MOVE_CP(sms,verbose)
+		EDIT_STATES.ADD_CAR:state_machine_ADD_CAR(sms,verbose)
 		_: raise_fatal_error( "unknow state ,state:"+ String(current_state))
 
 ####################################
@@ -696,6 +729,7 @@ func _process(delta):
 	#print(last_mouse_position)
 	time=time+delta
 	t=abs(cos(time))
+
 	if  not far_enougth_road():
 		var nfrp=nearest_fragment_road_position(get_local_mouse_position())
 		var road=nfrp[1]

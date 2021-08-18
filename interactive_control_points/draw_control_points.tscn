@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://interactive_control_points/World.gd" type="Script" id=1]
 [ext_resource path="res://interactive_control_points/text_but_destroyroad.png" type="Texture" id=2]
@@ -14,6 +14,12 @@
 [ext_resource path="res://interactive_control_points/RoadNode.gd" type="Script" id=12]
 [ext_resource path="res://interactive_control_points/debug_texture.png" type="Texture" id=13]
 [ext_resource path="res://road_fragment.png" type="Texture" id=14]
+[ext_resource path="res://drawing/car_red.png" type="Texture" id=15]
+[ext_resource path="res://interactive_control_points/ButtonAddCar.gd" type="Script" id=16]
+[ext_resource path="res://interactive_control_points/Car.gd" type="Script" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.55469, 7.9084 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -65,8 +71,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonAddCar" type="Button" parent="."]
+margin_left = 187.759
+margin_top = 5.74577
+margin_right = 239.759
+margin_bottom = 73.7458
+rect_scale = Vector2( 0.3, 0.3 )
+icon = ExtResource( 15 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SimpleRoad_class" type="Line2D" parent="."]
 position = Vector2( -292.968, 177.825 )
+z_as_relative = false
 points = PoolVector2Array( 56.8383, 82.1497, 187.93, 82.78, 222.594, 44.3348, 252.846, 106.099, 24.0653, 109.881 )
 width = 30.0
 default_color = Color( 0.968627, 0.984314, 0.984314, 1 )
@@ -102,3 +121,16 @@ texture = ExtResource( 13 )
 position = Vector2( -104.155, 39.8892 )
 z_index = 1000
 texture = ExtResource( 13 )
+
+[node name="Car" type="Area2D" parent="."]
+z_index = 1
+script = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Car"]
+position = Vector2( 11.9865, 50.9424 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+position = Vector2( 12.0272, 51.0039 )
+shape = SubResource( 1 )
